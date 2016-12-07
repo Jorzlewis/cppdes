@@ -1,0 +1,14 @@
+<h3 class="text-center">Citas - Centro Psicosocial Piloto Web</h3>
+<div style="float:left; width: 160px">
+        <daypilot-navigator id="navi" daypilot-config="navigatorConfig" ></daypilot-navigator>
+    </div>
+    <div style="margin-left: 160px">
+ <div class="space">
+    <button ng-click="showDay()">Dia</button>
+    <button ng-click="showWeek()">Semana</button>
+<div>
+  <daypilot-calendar id="day" daypilot-config="dayConfig" daypilot-events="events" ></daypilot-calendar>
+   <daypilot-calendar id="week" daypilot-config="weekConfig" daypilot-events="events" ></daypilot-calendar>
+</div>
+</div>
+</div>

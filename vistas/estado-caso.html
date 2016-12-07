@@ -1,0 +1,147 @@
+<h3 class="text-center">Informe psicológico General y Estado de caso</h3>
+<h3><b>Historia Clinica #</b> {{historiaElegida.documento}} | {{historiaElegida.primer_nombre}} {{historiaElegida.segundo_nombre}} {{historiaElegida.primer_apellido}} {{historiaElegida.segundo_apellido}}</h3>
+<!--<div class="btn-group">
+<a ng-href="#/nuevo-caso/{{historiaElegida.$id}}" type="button" class="btn btn-primary" ng-show="historiaElegida.caso.supervisor_tar_cod == null">Nuevo Caso</a>
+</div>-->
+<div class="list-group">
+
+  <div class="list-group-item">
+    <!--<div class="row-picture">
+      <img class="img-circle" ng-src="{{trabajoElegido.gravatar}}" alt="icon">
+    </div>-->
+  
+    <div class="row-content">
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Tipo Documento: </strong>{{historiaElegida.tipo_documento}}</p>
+        <p class="list-group-item-text"><strong> Documento: </strong>{{historiaElegida.documento}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Celular: </strong>{{historiaElegida.celular}}</p>
+        <p class="list-group-item-text"><strong>Teléfono: </strong>{{historiaElegida.telefono}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Fecha de nacimiento: </strong>{{historiaElegida.fecha_nacimiento | date: 'dd/MM/yyyy'}}</p>
+        <p class="list-group-item-text"><strong>Edad: </strong>{{historiaElegida.edad}}</p></br>
+        <p class="list-group-item-text"><strong>Sexo: </strong>{{historiaElegida.sexo}}</p>
+        <p class="list-group-item-text"><strong>Departamento: </strong>{{historiaElegida.departamento}}</p>
+        <p class="list-group-item-text"><strong>Ciudad: </strong>{{historiaElegida.ciudad}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Correo Electronico: </strong>{{historiaElegida.correo_electronico}}</p></br>
+        <p class="list-group-item-text"><strong>Zona Residencial: </strong>{{historiaElegida.zona_residencial}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div ng-show="historiaElegida.tipo_documento == 'TI'">
+  <h4><b>Datos Acudiente</b></h4>
+    <div>
+      <p class="list-group-item-text"><strong>Nombre: </strong>{{historiaElegida.acudiente_primer_nombre}} {{historiaElegida.acudiente_segundo_nombre}} {{historiaElegida.acudiente_primer_apellido}} {{historiaElegida.acudiente_segundo_apellido}}</p>      
+    </div>
+    <div class="col-md-6">
+      <p class="list-group-item-text"><strong>Tipo Documento: </strong>{{historiaElegida.acudiente_tipo_documento}}</p>
+      <p class="list-group-item-text"><strong>Documento: </strong>{{historiaElegida.acudiente_documento}}</p>
+      </div>
+      <div class="col-md-6">
+      <p class="list-group-item-text"><strong>Fecha Nacimiento: </strong>{{historiaElegida.acudiente_fecha_nacimiento | date:'fullDate'}}</p>
+      <p class="list-group-item-text"><strong>Edad: </strong>{{historiaElegida.acudiente_edad}}</p>
+      <p class="list-group-item-text"><strong>Celular: </strong>{{historiaElegida.acudiente_celular}}</p>
+      <p class="list-group-item-text"><strong>Correo Electronico: </strong>{{historiaElegida.acudiente_correo_electronico}}</p>
+      </div>
+</div>
+<div>
+<form class="form-sesion" ng-submit="crearSesion(historia_clinica)">
+<h4>Información sobre el proceso psicológico desarrollado</h4>
+<div class="col-md-6">
+  <div class="form-group">
+      <label>Estado actual del Proceso</label>
+      <select class="form-control" ng-model="historiaElegida.sesion.estado">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Deserción (cierre por inasistencia injustificada)">Deserción (cierre por inasistencia injustificada)</option>
+      <option value="El consultante decide no continuar">El consultante decide no continuar</option>
+      <option value="Cierre con cumplimiento de objetivos terapeuticos">Cierre con cumplimiento de objetivos terapeuticos</option>
+      <option value="Empalme (Continua el siguiente semestre académico)">Empalme (Continua el siguiente semestre académico)</option>
+      <option value="Referencia: ___ Motivo: _______">Referencia: ___ Motivo: _______</option>
+      </select>
+  </div>
+
+</div>
+<div class="col-md-6">
+   <div class="form-group">
+   <label>Fecha de referencia</label>
+  <div class="input-group">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>     
+      <input type="date" ng-model="historiaElegida.caso.sesion.fecha_referencia" class="form-control" placeholder="Fecha de referencia">
+    </div>
+  </div>
+  </div>
+<div class="col-md-6">
+  <div class="form-group">
+      <label>Seguimiento a Riesgos</label>
+     <!-- <p>¿Se presentaron riesgos en la presentación del servicio?</p> -->
+      <select class="form-control" ng-model="historiaElegida.caso.sesion.seguimiento_riesgos">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Si">Si</option>
+      <option value="No">No</option>
+      </select>
+</div>
+</div>
+<div class="col-md-6">
+    <div class="form-group">
+      <label>Estrategia de seguimiento</label>
+      <input type="text" ng-model="historiaElegida.caso.sesion.estrategia_seguimiento" class="form-control" placeholder="Estrategia de seguimiento">
+    </div>
+  </div>
+  <div class="col-md-12">
+  <div class="form-group">
+      <label>Motivo de Consulta o remisión:</label>
+      <textarea class="form-control" rows="10" id="comment" ng-model="historiaElegida.caso.sesion.motivo_consulta"></textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+  <div class="form-group">
+      <label>Apariencia, porte y actitud</label>
+      <textarea class="form-control" rows="4" id="comment" ng-model="historiaElegida.caso.sesion.apariencia"></textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+  <div class="form-group">
+      <label>Historia del Problema</label>
+      <textarea class="form-control" rows="11" id="comment" ng-model="historiaElegida.caso.sesion.historia_problema"></textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+  <div class="form-group">
+      <label>Áreas de ajuste</label>
+      <textarea class="form-control" rows="11" id="comment" ng-model="historiaElegida.caso.sesion.areas_ajuste"></textarea>
+      </div>
+      </div>
+       <div class="col-md-12">
+  <div class="form-group">
+      <label>Estrategias de evaluación</label>
+      <textarea class="form-control" rows="7" id="comment" ng-model="historiaElegida.caso.sesion.estrategia_evaluacion"></textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+  <div class="form-group">
+      <label>Proceso de Intervención</label>
+      <textarea class="form-control" rows="8" id="comment" ng-model="historiaElegida.caso.sesion.proceso_intervencion"></textarea>
+      </div>
+      </div>
+<div class="col-md-12">
+  <div class="form-group">
+      <label>Logros de la intervención</label>
+      <textarea class="form-control" rows="8" id="comment" ng-model="historiaElegida.caso.sesion.logros_intervencion"></textarea>
+      </div>
+      </div>
+      <div class="col-md-12">
+  <div class="form-group">
+      <label>Dificultades en el proceso y recomendaciones</label>
+      <textarea class="form-control" rows="7" id="comment" ng-model="historiaElegida.caso.sesion.dificultades"></textarea>
+      </div>
+      </div>
+      <div class="text-center">
+    <a ng-href="#/mis-casos" class="btn btn-danger" role="button">Cancelar</a> 
+    <button type="submit" class="btn btn-success">Guardar</button>
+  </div>
+      </form>

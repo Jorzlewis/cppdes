@@ -1,0 +1,22 @@
+<h3 class="text-center">Mis Casos</h3>
+</br>
+<div class="list-group" ng-controller="NavCtrl">
+<table class="table table-hover">
+  <thead>
+    <th># Historia Clinica</th>
+    <th>Nombres</th>
+    <th>Apellidos</th>
+    <th>Fecha Creación</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(id, h) in historias_clinicas" ng-show="h.caso.profesional_tar_cod == usuarioActual.profile.tar_cod">
+      <td><b>{{h.documento}}</b></td>
+      <td>{{h.primer_nombre}} {{h.segundo_nombre}}</td>
+      <td>{{h.primer_apellido}} {{h.segundo_apellido}}</td>
+      <td>{{h.fecha_creacion | date:'dd/MM/yyyy'}}</td>
+      <td><a ng-href="#/detalle-caso/{{h.$id}}" class="btn btn-primary" role="button">Administrar</a>
+    </tr>
+  </tbody>
+</table>
+</div>

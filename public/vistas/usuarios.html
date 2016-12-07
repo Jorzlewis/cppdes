@@ -1,0 +1,31 @@
+<h3 class="text-center">Usuarios - Centro Psicosocial Piloto Web</h3>
+</br>
+<div>
+	<a href="#/registro" class="btn btn-primary" role="button">Nuevo</a>
+  </div>
+  </br>
+<div class="list-group">
+<table class="table table-hover">
+  <thead>
+    <th>Id</th>
+    <th>Nombre</th>
+    <th>Apellido</th>
+    <th>Rol</th>
+    <th>Fecha Creación</th>
+    <th>Estado</th>
+    <th>&nbsp;</th>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(id, u) in usuarios" ng-class="{estado-abierto: u.profile.estado == 'Abierto', estado-cerrado: u.profile.estado == 'Cerrado'}">
+      <td>{{u.profile.tar_cod}}</td>
+      <td>{{u.profile.primer_nombre}}</td>
+      <td>{{u.profile.primer_apellido}}</td>
+      <td>{{u.profile.rol}}</td>
+      <td>{{u.profile.fecha_creacion | date:'dd/MM/yyyy'}}</td>
+      <td><img ng-src="{{u.profile.estado == 'Abierto' && 'img/check.png' || 'img/uncheck.png'}}"/></td>
+      <td><a ng-href="#/detalle-usuario/{{u.$id}}" class="btn btn-primary" role="button">Administrar</a></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+

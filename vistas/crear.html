@@ -1,0 +1,56 @@
+<h3>Crear Ofertas de Trabajo</h3>
+
+</br>
+<form class="form-crear" ng-submit="crearTrabajo(trabajo)">
+  <div class="col-md-6">
+  	<div class="form-group">
+   		<label >Título</label>
+    	<input type="text" ng-model="trabajo.titulo" class="form-control" placeholder="Título del trabajo">
+  	</div>
+  </div>
+  <div class="col-md-6">
+  	<div class="form-group">
+    	<label >Empresa</label>
+    	<input type="text" ng-model="trabajo.empresa" class="form-control" placeholder="Nombre de la empresa">
+  	</div>
+  </div>
+  <div class="col-md-12">	
+  	<div class="form-group">
+    	<label>Descripción</label>
+    	<textarea class="form-control" ng-model="trabajo.descripcion" rows="3" placeholder="Descripción del
+    	trabajo"></textarea>
+    </div>
+  </div>
+  <div class="col-md-6">
+	<div class="form-group">
+		<label>Categoria</label>
+		<select class="form-control" ng-model="trabajo.categoria"> 
+			<option value="Marketing-Ventas">Marketing / Ventas</option>
+		</select>
+	</div>  	
+  </div>
+  <div class="col-md-6">
+	<div class="form-group">
+		<label>Ubicación</label>
+		<select class="form-control" ng-model="trabajo.ubicacion">  
+			<option value="Cortes">Cortés</option>
+		</select>
+	</div>  	
+  </div>
+  <div class="col-md-6">
+	<div class="form-group">
+		<label>Jornada</label>
+		<select class="form-control" ng-model="trabajo.jornada"> 
+			<option value="Matutina">Matutina</option>
+		</select>
+	</div>  	
+  </div>
+  <div class="col-md-6">
+  	<div class="form-group">
+   		<label >Salario</label>
+    	<input type="number" class="form-control" ng-model="trabajo.salario" placeholder="Salario mensual">
+  	</div>
+  </div>
+ 
+  <button type="submit" class="btn btn-default">Crear</button>
+</form>

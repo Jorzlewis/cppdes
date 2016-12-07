@@ -1,0 +1,138 @@
+<h3>Registro Usuarios</h3>
+<form ng-submit="registro(usuario)">
+<div class="col-md-6">
+  <div class="form-group">
+      <label>Rol</label>
+      <select class="form-control" ng-model="usuario.rol">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Director">Director</option>
+      <option value="Supervisor">Supervisor</option>
+      <option value="Profesional en Formacion">Profesional en Formacion</option>
+      <option value="Secretaria">Secretaria</option>
+      <option value="Developer">Developer</option>
+      <option value="Test">Test</option>
+      </select>
+  </div>
+</div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Tarjeta Profesional / Codigo Estudiantil</label>
+      <input type="number" ng-model="usuario.tar_cod" class="form-control" placeholder="Tarjeta Profesional / Codigo Estudiantil">
+    </div>
+  </div>
+    <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Nombre</label>
+      <input type="text" ng-model="usuario.primer_nombre" class="form-control" placeholder="Primer Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Nombre</label>
+      <input type="text" ng-model="usuario.segundo_nombre" class="form-control" placeholder="Segundo Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Apellido</label>
+      <input type="text" ng-model="usuario.primer_apellido" class="form-control" placeholder="Primer Apellido">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Apellido</label>
+      <input type="text" ng-model="usuario.segundo_apellido" class="form-control" placeholder="Segundo Apellido">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Tipo Documento</label>
+      <select class="form-control" ng-model="usuario.tipo_documento">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="TI">TI</option>
+      <option value="CC">CC</option>
+      <option value="CE">CE</option>
+      <option value="PA">PA</option>
+      <option value="RC">RC</option>
+      <option value="AS">AS</option>
+      <option value="MS">MS</option>
+      <option value="NU">NU</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Documento</label>
+      <input type="text" ng-model="usuario.documento" class="form-control" placeholder="Documento">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Celular</label>
+      <input type="number" ng-model="usuario.celular" class="form-control" placeholder="Celular">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Telefono fijo</label>
+      <input type="number" ng-model="usuario.telefono" class="form-control" placeholder="Telefono">
+    </div>
+  </div>
+  <div class="col-md-4">
+   <div class="form-group">
+   <label>Fecha de nacimiento</label>
+  <div class="input-group">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>     
+      <input type="date" ng-model="usuario.fecha_nacimiento" class="form-control" placeholder="Fecha Nacimiento">
+    </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Departamento</label>
+      <select class="form-control" ng-model="usuario.departamento">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Amazonas">Amazonas</option>
+      <option value="Antioquia">Antioquia</option>
+      <option value="Arauca">Arauca</option>
+      <option value="Atlántico">Atlántico</option>
+      <option value="Bogotá">Bogotá</option>
+      <option value="Bolivar">Bolivar</option>
+      <option value="Boyacá">Boyacá</option>
+      <option value="Caldas">Caldas</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Ciudad</label>
+      <select class="form-control" ng-model="usuario.ciudad">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Leticia">Leticia</option>
+      <option value="Medellin">Medellin</option>
+      <option value="Arauca">Arauca</option>
+      <option value="Barranquilla">Barranquilla</option>
+      <option value="Fontibón">Fontibón</option>
+      <option value="Cartagena">Cartagena</option>
+      <option value="Tunja">Tunja</option>
+      <option value="Manizales">Manizales</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Correo Institucional</label>
+      <input type="email" ng-model="usuario.email" class="form-control" placeholder="Correo Institucional">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Correo Personal</label>
+      <input type="email" ng-model="usuario.correo_personal" class="form-control" placeholder="Correo Personal">
+    </div>
+  </div>
+      <div class="text-center">
+    <a href="#/usuarios" class="btn btn-danger" role="button">Cancelar</a> 
+    <button type="submit" class="btn btn-success">Registrar</button>
+  </div>
+</form>

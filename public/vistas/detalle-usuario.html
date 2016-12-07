@@ -1,0 +1,34 @@
+<h3>{{usuarioElegido.profile.primer_nombre}} {{usuarioElegido.profile.segundo_nombre}} {{usuarioElegido.profile.primer_apellido}} {{usuarioElegido.profile.segundo_apellido}} - {{usuarioElegido.profile.rol}}</h3>
+</br>
+<div class="list-group">
+  <div class="list-group-item">
+    <!--<div class="row-picture">
+      <img class="img-circle" ng-src="{{trabajoElegido.gravatar}}" alt="icon">
+    </div>-->
+    <div class="row-content">
+      <div class="least-content"><a ng-href="#/usuarios" class="btn btn-danger">Cancelar</a>&nbsp;<a ng-href="#/editar-usuario/{{usuarioElegido.$id}}" class="btn btn-primary">Editar</a>&nbsp;
+      <button ng-click="usuarioElegido.profile.estado = 'Cerrado'" ng-show="usuarioElegido.profile.estado == 'Abierto'" class="btn btn-warning">Bloquear</button>
+      <button ng-show="usuarioElegido.profile.estado == 'Cerrado'" class="btn btn-success">Desbloquear</button></div>
+      <strong>Tarjeta Profesional / Codigo Estudiante: </strong>{{usuarioElegido.profile.tar_cod}}</p>
+      <div class="col-md-6">
+      <p class="list-group-item-text"><strong>Tipo Documento: </strong>{{usuarioElegido.profile.tipo_documento}}</p>
+      <p class="list-group-item-text"><strong>Documento: </strong>{{usuarioElegido.profile.documento}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Celular: </strong>{{usuarioElegido.profile.celular}}</p></br>
+        <p class="list-group-item-text"><strong>Teléfono: </strong>{{usuarioElegido.profile.telefono}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Fecha de nacimiento: </strong>{{usuarioElegido.profile.fecha_nacimiento | date: 'short'}}</p></br>
+        <p class="list-group-item-text"><strong>Departamento: </strong>{{usuarioElegido.profile.departamento}}</p>
+        <p class="list-group-item-text"><strong>Ciudad: </strong>{{usuarioElegido.profile.ciudad}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Correo Institucional: </strong>{{usuarioElegido.profile.correo_institucional}}</p></br>
+        <p class="list-group-item-text"><strong>Correo Personal: </strong>{{usuarioElegido.profile.correo_personal}}</p>
+        <p class="list-group-item-text"><strong>Estado: </strong><span ng-class="{'estado-abierto': usuarioElegido.profile.estado === 'Abierto', 'estado-cerrado': usuarioElegido.profile.estado === 'Cerrado'}">{{usuarioElegido.profile.estado}}</span></p>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+</div>

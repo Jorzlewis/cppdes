@@ -1,0 +1,286 @@
+<h3>Nueva Historia Clinica</h3>
+
+<form class="form-historia" ng-submit="crearHc(historia_clinica)">
+</br>
+<h4>Datos Consultante</h4>
+<div class="col-md-6">
+    <div class="form-group">
+      <label>Tipo Documento</label>
+      <select class="form-control" ng-model="historia_clinica.tipo_documento">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="TI">TI</option>
+      <option value="CC">CC</option>
+      <option value="CE">CE</option>
+      <option value="PA">PA</option>
+      <option value="RC">RC</option>
+      <option value="AS">AS</option>
+      <option value="MS">MS</option>
+      <option value="NU">NU</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Documento</label>
+      <input type="text" ng-model="historia_clinica.documento" class="form-control" placeholder="Documento">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Nombre</label>
+      <input type="text" ng-model="historia_clinica.primer_nombre" class="form-control" placeholder="Primer Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Nombre</label>
+      <input type="text" ng-model="historia_clinica.segundo_nombre" class="form-control" placeholder="Segundo Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Apellido</label>
+      <input type="text" ng-model="historia_clinica.primer_apellido" class="form-control" placeholder="Primer Apellido">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Apellido</label>
+      <input type="text" ng-model="historia_clinica.segundo_apellido" class="form-control" placeholder="Segundo Apellido">
+    </div>
+  </div>
+   <div class="col-md-4">
+    <div class="form-group">
+      <label>Sexo</label>
+      <select class="form-control" ng-model="historia_clinica.sexo">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="M">Masculino</option>
+      <option value="F">Femenino</option>
+      </select>
+    </div>
+   </div> 
+   <div class="col-md-4">
+   <div class="form-group">
+   <label>Fecha de nacimiento</label>
+  <div class="input-group">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>     
+      <input type="date" ng-model="historia_clinica.fecha_nacimiento" class="form-control" placeholder="Fecha Nacimiento">
+    </div>
+  </div>
+  </div>
+  <div class="col-md-4">
+    <div class="form-group">
+      <label>Edad</label>
+      <input type="number" ng-model="historia_clinica.edad" class="form-control" placeholder="Edad">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Departamento</label>
+      <select class="form-control" ng-model="historia_clinica.departamento">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Amazonas">Amazonas</option>
+      <option value="Antioquia">Antioquia</option>
+      <option value="Arauca">Arauca</option>
+      <option value="Atlántico">Atlántico</option>
+      <option value="Bogotá">Bogotá</option>
+      <option value="Bolivar">Bolivar</option>
+      <option value="Boyacá">Boyacá</option>
+      <option value="Caldas">Caldas</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Ciudad</label>
+      <select class="form-control" ng-model="historia_clinica.ciudad">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="Leticia">Leticia</option>
+      <option value="Medellin">Medellin</option>
+      <option value="Arauca">Arauca</option>
+      <option value="Barranquilla">Barranquilla</option>
+      <option value="Fontibón">Fontibón</option>
+      <option value="Cartagena">Cartagena</option>
+      <option value="Tunja">Tunja</option>
+      <option value="Manizales">Manizales</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Telefono fijo</label>
+      <input type="number" ng-model="historia_clinica.telefono" class="form-control" placeholder="Telefono">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Celular</label>
+      <input type="number" ng-model="historia_clinica.celular" class="form-control" placeholder="Celular">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Correo Electronico</label>
+      <input type="email" ng-model="historia_clinica.correo_electronico" class="form-control" placeholder="Correo Electronico">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Zona Residencial</label>
+      <select class="form-control" ng-model="historia_clinica.zona_residencial">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="U">Urbana</option>
+      <option value="R">Rural</option>
+      </select>
+    </div>
+   </div> 
+
+   </br>
+   <div ng-show="historia_clinica.tipo_documento == 'TI'">
+   <h4>Datos Acudiente</h4>
+<div class="col-md-6">
+    <div class="form-group">
+      <label>Tipo Documento</label>
+      <select class="form-control" ng-model="historia_clinica.acudiente_tipo_documento">
+      <option value="" selected disabled>Seleccione...</option>
+      <option value="CC">CC</option>
+      <option value="CE">CE</option>
+      <option value="PA">PA</option>
+      <option value="RC">RC</option>
+      <option value="AS">AS</option>
+      <option value="MS">MS</option>
+      <option value="NU">NU</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Documento</label>
+      <input type="text" ng-model="historia_clinica.acudiente_documento" class="form-control" placeholder="Documento">
+    </div>
+    </div>
+    <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Nombre</label>
+      <input type="text" ng-model="historia_clinica.acudiente_primer_nombre" class="form-control" placeholder="Primer Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Nombre</label>
+      <input type="text" ng-model="historia_clinica.acudiente_segundo_nombre" class="form-control" placeholder="Segundo Nombre">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Primer Apellido</label>
+      <input type="text" ng-model="historia_clinica.acudiente_primer_apellido" class="form-control" placeholder="Primer Apellido">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Segundo Apellido</label>
+      <input type="text" ng-model="historia_clinica.acudiente_segundo_apellido" class="form-control" placeholder="Segundo Apellido">
+    </div>
+  </div>
+   <div class="col-md-3">
+   <div class="form-group">
+   <label>Fecha de nacimiento</label>
+  <div class="input-group">
+        <div class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></div>     
+      <input type="date" ng-model="historia_clinica.acudiente_fecha_nacimiento" class="form-control" placeholder="Fecha Nacimiento">
+    </div>
+  </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Edad</label>
+      <input type="number" ng-model="historia_clinica.acudiente_edad" class="form-control" placeholder="Edad">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Celular</label>
+      <input type="number" ng-model="historia_clinica.acudiente_celular" class="form-control" placeholder="Celular">
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-group">
+      <label>Correo Electronico</label>
+      <input type="email" ng-model="historia_clinica.acudiente_correo_electronico" class="form-control" placeholder="Correo Electronico">
+    </div>
+  </div>
+  </div>
+   <div class="text-center">
+    <a href="#/buscar" class="btn btn-danger" role="button">Cancelar</a> 
+    <button type="submit" class="btn btn-success">Crear</button>
+  </div>   
+</form>
+
+
+
+<!--<form class="form-publicar" ng-submit="publicarTrabajo(trabajo)">
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Título</label>
+      <input type="text" ng-model="trabajo.titulo" class="form-control" placeholder="Título del trabajo">
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Empresa</label>
+      <input type="text" ng-model="trabajo.empresa" class="form-control" placeholder="Nombre de la empresa">
+    </div>
+  </div>
+  <div class="col-md-12">
+    <div class="form-group">
+      <label>Descripción</label>
+      <textarea class="form-control" ng-model="trabajo.descripcion" rows="3" placeholder="Descripción del trabajo"></textarea>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Categoría</label>
+      <select class="form-control" ng-model="trabajo.categoria">
+      <option value="Marketing-Ventas">Marketing / Ventas</option>
+      <option value="Administración-Oficina">Administración / Oficina</option>
+      <option value="Atencion-Cliente">Atención / Cliente</option>
+      <option value="Informatica-Telecomunicaciones">Informática / Telecomunicaciones</option>
+      <option value="Produccion-Operaciones">Producción / Operaciones</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Ubicación</label>
+      <select class="form-control" ng-model="trabajo.ubicacion">
+      <option value="Cortes">Cortés</option>
+      <option value="Francisco-Morazan">Francisco Morazán</option>
+      <option value="Atlántida">Atlántida</option>
+      <option value="Comayagua">Comayagua</option>
+      <option value="Yoro">Yoro</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Jornada</label>
+      <select class="form-control" ng-model="trabajo.jornada">
+      <option value="Matutina">Matutina</option>
+      <option value="Vespertina">Vespertina</option>
+      <option value="Nocturna">Nocturna</option>
+      <option value="Completa">Completa</option>
+    </select>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <div class="form-group">
+      <label>Salario</label>
+      <input type="number" ng-model="trabajo.salario" class="form-control" placeholder="Salario mensual">
+    </div>
+  </div>
+
+  <div class="text-center">
+    <button type="submit" class="btn btn-danger">Publicar</button>
+  </div>
+</form>-->

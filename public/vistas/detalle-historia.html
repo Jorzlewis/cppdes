@@ -1,0 +1,98 @@
+<h3><b>Historia Clinica #</b> {{historiaElegida.documento}} | {{historiaElegida.primer_nombre}} {{historiaElegida.segundo_nombre}} {{historiaElegida.primer_apellido}} {{historiaElegida.segundo_apellido}}</h3>
+<div class="btn-group">
+<a ng-href="#/nuevo-caso/{{historiaElegida.$id}}" type="button" class="btn btn-primary" ng-show="historiaElegida.caso.supervisor_tar_cod == null">Nuevo Caso</a>
+</div>
+</br>
+<h4><b>Datos Consultante</b></h4>
+<div class="list-group">
+
+  <div class="list-group-item">
+    <!--<div class="row-picture">
+      <img class="img-circle" ng-src="{{trabajoElegido.gravatar}}" alt="icon">
+    </div>-->
+  
+    <div class="row-content">
+      <div class="least-content"><a ng-href="#/buscar" class="btn btn-danger" type="button">Cancelar</a>&nbsp;<a ng-href="#/editar-historia/{{historiaElegida.$id}}" class="btn btn-primary" type="button">Editar</a></div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Tipo Documento: </strong>{{historiaElegida.tipo_documento}}</p>
+        <p class="list-group-item-text"><strong> Documento: </strong>{{historiaElegida.documento}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Celular: </strong>{{historiaElegida.celular}}</p>
+        <p class="list-group-item-text"><strong>Teléfono: </strong>{{historiaElegida.telefono}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Fecha de nacimiento: </strong>{{historiaElegida.fecha_nacimiento | date: 'dd/MM/yyyy'}}</p>
+        <p class="list-group-item-text"><strong>Edad: </strong>{{historiaElegida.edad}}</p></br>
+        <p class="list-group-item-text"><strong>Sexo: </strong>{{historiaElegida.sexo}}</p>
+        <p class="list-group-item-text"><strong>Departamento: </strong>{{historiaElegida.departamento}}</p>
+        <p class="list-group-item-text"><strong>Ciudad: </strong>{{historiaElegida.ciudad}}</p>
+      </div>
+      <div class="col-md-6">
+        <p class="list-group-item-text"><strong>Correo Electronico: </strong>{{historiaElegida.correo_electronico}}</p></br>
+        <p class="list-group-item-text"><strong>Zona Residencial: </strong>{{historiaElegida.zona_residencial}}</p>
+      </div>
+    </div>
+  </div>
+  <div class="list-group-separator"></div>
+  <div ng-show="historiaElegida.tipo_documento == 'TI'">
+  <h4><b>Datos Acudiente</b></h4>
+    <div>
+      <p class="list-group-item-text"><strong>Nombre: </strong>{{historiaElegida.acudiente_primer_nombre}} {{historiaElegida.acudiente_segundo_nombre}} {{historiaElegida.acudiente_primer_apellido}} {{historiaElegida.acudiente_segundo_apellido}}</p>      
+    </div>
+    <div class="col-md-6">
+      <p class="list-group-item-text"><strong>Tipo Documento: </strong>{{historiaElegida.acudiente_tipo_documento}}</p>
+      <p class="list-group-item-text"><strong>Documento: </strong>{{historiaElegida.acudiente_documento}}</p>
+      </div>
+      <div class="col-md-6">
+      <p class="list-group-item-text"><strong>Fecha Nacimiento: </strong>{{historiaElegida.acudiente_fecha_nacimiento | date:'fullDate'}}</p>
+      <p class="list-group-item-text"><strong>Edad: </strong>{{historiaElegida.acudiente_edad}}</p>
+      <p class="list-group-item-text"><strong>Celular: </strong>{{historiaElegida.acudiente_celular}}</p>
+      <p class="list-group-item-text"><strong>Correo Electronico: </strong>{{historiaElegida.acudiente_correo_electronico}}</p>
+      </div>
+</div>
+</div>
+
+<h4><b>Caso</b></h4>
+<div class="col-md-6">
+      <p class="list-group-item-text"><strong>Supervisor: </strong>{{historiaElegida.caso.supervisor_tar_cod}}</p>
+      <p class="list-group-item-text"><strong>Profesional en Formación: </strong>{{historiaElegida.caso.profesional_tar_cod}}</p>
+      </div>
+
+<div class="modal fade" id="Modal-caso" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Asignar Supervisor</h4>
+        </div>
+        <form class="form-modal" ng-submit="crearCaso(historiaElegida)">
+        <div class="modal-body" ng-controller="UsuaCtrl">
+        <div class="col-md-12">
+         <label>{{historiaElegida.documento}}}</label>
+      <select class="form-control" ng-model="historiaElegida.supervisor_tar_cod">
+      <option value="" selected disabled>Seleccione...</option>
+      <option ng-repeat="u in usuarios" value="{{u.profile.tar_cod}}">{{u.profile.rol}} | {{u.profile.tar_cod}} | {{u.profile.primer_nombre}} {{u.profile.segundo_nombre}} {{u.profile.primer_apellido}} {{u.profile.segundo_apellido}}</option>
+      </select>
+      </div>
+      <div class="col-md-12">
+      <label>Profesional en Formación</label>
+      <select class="form-control" ng-model="historiaElegida.profesional_tar_cod">
+      <option value="" selected disabled>Seleccione...</option>
+      <option ng-repeat="u in usuarios" value="{{u.profile.tar_cod}}">{{u.profile.rol}} | {{u.profile.tar_cod}} | {{u.profile.primer_nombre}} {{u.profile.segundo_nombre}} {{u.profile.primer_apellido}} {{u.profile.segundo_apellido}}</option>
+      </select>
+      </div>
+     
+        </div>
+         </form>
+        </br>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          <button type="submit" class="btn btn-success" data-dismiss="modal">Asignar</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>

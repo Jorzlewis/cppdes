@@ -1,0 +1,26 @@
+<h3><b>Historia Clinica #</b> {{historiaElegida.documento}} | {{historiaElegida.primer_nombre}} {{historiaElegida.segundo_nombre}} {{historiaElegida.primer_apellido}} {{historiaElegida.segundo_apellido}}</h3>
+<h4><b>Nuevo Caso</b></h4>
+<form class="form-caso" ng-submit="crearCaso(historiaElegida)" ng-controller="UsuaCtrl">
+<div class="col-md-6">
+        <div class="form-group">
+         	<label>Supervisor</label>
+      		<select class="form-control" ng-model="historiaElegida.caso.supervisor_tar_cod">
+      			<option value="" selected disabled>Seleccione...</option>
+      			<option ng-repeat="u in usuarios" value="{{u.profile.tar_cod}}">{{u.profile.rol}} | {{u.profile.tar_cod}} | {{u.profile.primer_nombre}} {{u.profile.segundo_nombre}} {{u.profile.primer_apellido}} {{u.profile.segundo_apellido}}</option>
+      		</select>
+      		</div>
+     	</div>
+     	<div class="col-md-6">
+   		<div class="form-group">
+      	<label>Profesional en Formación</label>
+      	<select class="form-control" ng-model="historiaElegida.caso.profesional_tar_cod">
+      		<option value="" selected disabled>Seleccione...</option>
+      		<option ng-repeat="u in usuarios" value="{{u.profile.tar_cod}}">{{u.profile.rol}} | {{u.profile.tar_cod}} | {{u.profile.primer_nombre}} {{u.profile.segundo_nombre}} {{u.profile.primer_apellido}} {{u.profile.segundo_apellido}}</option>
+      	</select>
+      	</div>
+   		</div>
+<div class="text-center">
+    	<button type="button" class="btn btn-danger">Cancelar</button>
+        <button type="submit" class="btn btn-success">Asignar</button>
+        </div>
+   		</form>
